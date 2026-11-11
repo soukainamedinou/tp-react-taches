@@ -1,5 +1,17 @@
+import Entete from './components/Entete';
+import ListeTaches from './components/ListeTaches';
+import Pied from './components/Pied';
+
 function App() {
-  return <h1>Bonjour React !</h1>
+  return (
+    <>
+      <Entete />
+      <main>
+        <ListeTaches />
+      </main>
+      <Pied />
+    </>
+  );
 }
 
-export default App
+export default App;

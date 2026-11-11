@@ -68,6 +68,16 @@ function App() {
       { id: Date.now(), titre, terminee: false },
     ])
   }
+  
+  function modifierTache(id, nouveauTitre) {
+    setTaches((anciennes) =>
+      anciennes.map((tache) =>
+        tache.id === id
+          ? { ...tache, titre: nouveauTitre }
+          : tache
+      )
+    )
+  }
 
   function supprimerTachesTerminees() {
     setTaches((anciennes) =>
@@ -118,6 +128,7 @@ function App() {
             taches={tachesVisibles}
             onBasculer={basculerTache}
             onSupprimer={supprimerTache}
+            onModifier={modifierTache}
           />
         )}
         <button

@@ -1,9 +1,11 @@
-function Pied() {
+const ANNEE = new Date().getFullYear()
+
+function Pied({ auteur }) {
   return (
-    <footer>
-      <p>Application Mes tâches</p>
+    <footer className="pied">
+      TP React – réalisé par {auteur} – {ANNEE}
     </footer>
-  );
+  )
 }
 
-export default Pied;
+export default Pied

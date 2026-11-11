@@ -69,11 +69,19 @@ function App() {
     ])
   }
 
+  function supprimerTachesTerminees() {
+    setTaches((anciennes) =>
+      anciennes.filter((tache) => !tache.terminee)
+    )
+  }
+
   const tachesVisibles = taches.filter((tache) => {
     if (filtre === 'actives') return !tache.terminee
     if (filtre === 'terminees') return tache.terminee
     return true
   })
+
+  
 
   return (
     <div className="app">
@@ -112,6 +120,13 @@ function App() {
             onSupprimer={supprimerTache}
           />
         )}
+        <button
+          className="danger"
+          onClick={supprimerTachesTerminees}
+          disabled={!taches.some((tache) => tache.terminee)}
+        >
+          Supprimer les tâches terminées
+        </button>
       </Carte>
 
       <Carte titre="Statistiques">
